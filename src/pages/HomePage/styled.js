@@ -19,7 +19,8 @@ export const Header = styled.header`
   box-shadow: 5px 4px 6px rgba(0, 0, 0, 0.09);
 
   img {
-    height: 95px;
+    height: 115px;
+    padding-bottom: 20px;
   }
 
   input {
@@ -30,13 +31,14 @@ export const Header = styled.header`
   }
 `;
 
-export const Container = styled.div`
+export const IconsContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
+  width: 100px;
 
-  h1 {
-    font-size: 15px;
-    margin-right: 10px;
+  ion-icon {
+    font-size: 30px;
+    cursor: pointer;
   }
 `;

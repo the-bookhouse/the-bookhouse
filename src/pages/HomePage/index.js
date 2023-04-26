@@ -1,16 +1,19 @@
-import { HomeContainer, Header, Container } from "./styled";
+import { HomeContainer, Header, IconsContainer } from "./styled";
 import thebookhouse from "../../assets/images/thebookhouse.png";
+import { useNavigate } from "react-router-dom";
 
 export default function HomePage() {
+  const navigate = useNavigate(); 
+  
   return (
     <HomeContainer>
       <Header>
         <img src={thebookhouse} alt="logo"></img>
         <input type="text" id="text-area" value="Busque por um item..." />
-        <Container>
-          <h1>Icone Carrinho</h1>
-          <h1>Icone Saída</h1>
-        </Container>
+        <IconsContainer>
+          <ion-icon name="bag-handle-outline"></ion-icon>
+          <ion-icon onClick={() => navigate("/")} name="log-out-outline"></ion-icon>
+        </IconsContainer>
       </Header>
     </HomeContainer>
   );
