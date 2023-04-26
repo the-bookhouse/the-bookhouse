@@ -1,18 +1,18 @@
-import { Link } from "react-router-dom"
-import TheBookHouseLogo from "../../components/TheBookHouseLogo/TheBookHouseLogo"
-import useQuickIn from "../../hooks/useQuickIn"
-import useForm from "../../hooks/useForm"
-import { useLogin } from "../../services/auth"
-import { LoginContainer } from "./styled"
+import { Link } from "react-router-dom";
+import TheBookHouseLogo from "../../components/TheBookHouseLogo/TheBookHouseLogo";
+import useQuickIn from "../../hooks/useQuickIn";
+import useForm from "../../hooks/useForm";
+import { useLogin } from "../../services/auth";
+import { LoginContainer } from "./styled";
 
 export default function LoginPage() {
-  const { form, handleForm } = useForm({ email: "", password: "" })
-  const login = useLogin()
-  useQuickIn()
+  const { form, handleForm } = useForm({ email: "", password: "" });
+  const login = useLogin();
+  useQuickIn();
 
   function submitForm(e) {
-    e.preventDefault()
-    login(form)
+    e.preventDefault();
+    login(form);
   }
 
   return (
@@ -41,9 +41,7 @@ export default function LoginPage() {
         <button type="submit">Entrar</button>
       </form>
 
-      <Link to="/cadastro">
-        Primeira vez? Cadastre-se!
-      </Link>
+      <Link to="/sign-up">Primeira vez? Cadastre-se!</Link>
     </LoginContainer>
-  )
+  );
 }

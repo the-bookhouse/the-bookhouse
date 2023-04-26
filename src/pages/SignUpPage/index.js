@@ -1,21 +1,27 @@
-import { Link } from "react-router-dom"
-import TheBookHouseLogo from "../../components/TheBookHouseLogo/TheBookHouseLogo"
-import useQuickIn from "../../hooks/useQuickIn"
-import useForm from "../../hooks/useForm"
-import { useSignUp } from "../../services/auth"
-import { SingUpContainer } from "./styled"
+import { Link } from "react-router-dom";
+import TheBookHouseLogo from "../../components/TheBookHouseLogo/TheBookHouseLogo";
+import useQuickIn from "../../hooks/useQuickIn";
+import useForm from "../../hooks/useForm";
+import { useSignUp } from "../../services/auth";
+import { SingUpContainer } from "./styled";
 
 export default function SignUpPage() {
-  const { form, handleForm } = useForm({ name: "", email: "", password: "", confirmPassword: "" })
-  useQuickIn()
-  const signUp = useSignUp()
+  const { form, handleForm } = useForm({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+  useQuickIn();
+  const signUp = useSignUp();
 
   function submitForm(e) {
-    e.preventDefault()
-    if (form.password !== form.confirmPassword) return alert("As senhas não coincidem!")
+    e.preventDefault();
+    if (form.password !== form.confirmPassword)
+      return alert("As senhas não coincidem!");
 
-    delete form.confirmPassword
-    signUp(form)
+    delete form.confirmPassword;
+    signUp(form);
   }
 
   return (
@@ -61,9 +67,7 @@ export default function SignUpPage() {
         <button type="submit">Cadastrar</button>
       </form>
 
-      <Link to="/">
-        Já tem uma conta? Entre agora!
-      </Link>
+      <Link to="/">Já tem uma conta? Entre agora!</Link>
     </SingUpContainer>
-  )
+  );
 }
