@@ -6,6 +6,7 @@ import SignUpPage from "./pages/SignUpPage";
 import AuthContext from "./context/AuthContext";
 import { useState } from "react";
 import { mainColor } from "./constants/colors";
+import CheckoutPage from "./pages/CheckoutPage";
 
 export default function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
@@ -19,6 +20,7 @@ export default function App() {
             <Route path="/" element={<LoginPage />} />
             <Route path="/sign-up" element={<SignUpPage />} />
             <Route path="/home" element={<HomePage />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
           </Routes>
         </BrowserRouter>
       </AuthContext.Provider>
