@@ -44,7 +44,7 @@ export function useLogout() {
         setToken(undefined);
         setUserName(undefined);
         localStorage.clear();
-        navigate("/");
+        navigate("/login");
       })
       .catch((err) => alert(err.response.data));
   };
