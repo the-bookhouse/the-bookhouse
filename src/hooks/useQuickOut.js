@@ -7,6 +7,6 @@ export default function useQuickOut() {
   const navigate = useNavigate();
   
   useEffect(() => {
-    if (!token || !userName) navigate("/login");
+    if (!token || !userName) navigate("/");
   }, []);
 }

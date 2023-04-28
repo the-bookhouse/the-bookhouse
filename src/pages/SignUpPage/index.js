@@ -67,7 +67,7 @@ export default function SignUpPage() {
         <button type="submit">Cadastrar</button>
       </form>
 
-      <Link to="/login">Já tem uma conta? Entre agora!</Link>
+      <Link to="/">Já tem uma conta? Entre agora!</Link>
     </SingUpContainer>
   );
 }
