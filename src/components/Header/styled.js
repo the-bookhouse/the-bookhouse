@@ -91,3 +91,26 @@ export const IconsContainer = styled.div`
     cursor: pointer;
   }
 `;
+
+export const Counter = styled.div`
+  width: 16px;
+  height: 16px;
+  border-radius: 100%;
+  background-color: #000;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: bold;
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  z-index: 2;
+`
+
+export const CartIcon = styled.div`
+  display: flex;
+  position: relative;
+  cursor: pointer;
+`

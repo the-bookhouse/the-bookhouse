@@ -1,5 +1,6 @@
 import {
   CheckoutContainer,
+  ItensContainer,
   Header,
   OrderedContainer,
   ListProducts,
@@ -19,12 +20,10 @@ import concluded from "../../assets/images/concluded.gif";
 import AuthContext from "../../context/AuthContext";
 import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
-import AuthContext from "../../context/AuthContext";
 import axios from "axios";
 
 export default function CheckoutPage() {
-  const { userName } = useContext(AuthContext);
+  const { userName, token, cartLoader, setCartLoader } = useContext(AuthContext);
   const [formCompleted, setFormCompleted] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [form, setForm] = useState({
@@ -32,29 +31,26 @@ export default function CheckoutPage() {
     cardNumber: "",
     paymentMethod: "",
   });
-  const [cart] = useState([
-    {
-      id: 1,
-      title:
-        "Python Programming: 3 books in 1 - Ultimate Beginner's, Intermediate & Advanced Guide to Learn Python Step by Step",
-      price: 145,
-      quantity: 1,
-      image: book1,
-    },
-    {
-      id: 2,
-      title: "Data Science for Dummies",
-      price: 80,
-      quantity: 1,
-      image: book2,
-    },
-  ]);
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     const isFormValid = Object.values(form).every((value) => Boolean(value));
     setFormCompleted(isFormValid);
   }, [form]);
-
+  /*
+  useEffect(() => {
+    const config = {
+      headers:
+        { Authorization: `Bearer ${token}` }
+    };
+    axios.get(`${process.env.REACT_APP_API_URL}/cart`, config)
+      .then((res) => {
+        console.log(res.data)
+        setCart(res.data)
+      })
+      .catch((err) => console.log(err.message))
+  }, [])
+  */
   function submitForm(e) {
     e.preventDefault();
     setShowModal(true);
@@ -70,7 +66,7 @@ export default function CheckoutPage() {
     window.location.href = "/home";
   }
 
-  const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const total = cartLoader.reduce((acc, item) => acc + item.price , 0);
 
   return (
     <CheckoutContainer>
@@ -81,75 +77,79 @@ export default function CheckoutPage() {
       </Header>
 
       <h1 className="cart">Meu Carrinho</h1>
+      <ItensContainer>
+        <CartList>
+          {cartLoader.map((item) => (
+            <CartContainer key={item.id}>
+              <img src={item.image} alt="book"></img>
+              <h2>{item.title}</h2>
+              <h3><strong>R$ {item.price.toFixed(2)}</strong></h3>
+            </CartContainer>
+          ))}
+        </CartList>
 
-      <CartList>
-        {cart.map((item) => (
-          <CartContainer key={item.id}>
-            <img src={item.image} alt="book"></img>
-            <h2>{item.title}</h2>
-            <h3><strong>R$ {item.price.toFixed(2)}</strong></h3>
-          </CartContainer>
-        ))}
-      </CartList>
 
-      <OrderedContainer enabled={formCompleted}>
-        <h1>Resumo do Pedido</h1>
 
-        <ListProducts>
-          <h2>
-            {cart.length} produto{cart.length > 1 ? "s" : ""}
-          </h2>
-          <h3><strong>R$ {total.toFixed(2)}</strong></h3>
-        </ListProducts>
+        <OrderedContainer enabled={formCompleted}>
+          <h1>Resumo do Pedido</h1>
 
-        <Divider />
+          <ListProducts>
+            <h2>
+              Quantidade produtos
+            </h2>
+            <h3><strong>{cartLoader.length}</strong></h3>
+          </ListProducts>
 
-        <TotalProducts>
-          <h2>Total</h2>
-          <h3>R$ {total.toFixed(2)}</h3>
-        </TotalProducts>
+          <Divider />
 
-        <Divider />
+          <TotalProducts>
+            <h2>Total</h2>
+            <h3>R$ {total.toFixed(2)}</h3>
+          </TotalProducts>
 
-        <Link to="/home">
-          <h4>Continue Comprando</h4>
-        </Link>
+          <Divider />
 
-        <form onSubmit={submitForm}>
-          <SelectStyled
-            required
-            className="form-select"
-            name="paymentMethod"
-            value={form.paymentMethod}
-            onChange={handleInputChange}
-          >
-            <option value="" disabled>
-              Forma de pagamento
-            </option>
-            <option value="Débito">Débito</option>
-            <option value="Credito">Crédito</option>
-          </SelectStyled>
-          <input
-            required
-            type="text"
-            placeholder="Número do cartão"
-            name="cardNumber"
-            value={form.cardNumber}
-            onChange={handleInputChange}
-          />
-          <input
-            required
-            type="text"
-            placeholder="Endereço"
-            name="address"
-            value={form.address}
-            onChange={handleInputChange}
-          />
-          <button type="submit" disabled={!formCompleted}>
-            Finalizar Pedido
-          </button>
-        </form>
-      </OrderedContainer>
+          <Link to="/home">
+            <h4>Continue Comprando</h4>
+          </Link>
+
+          <form onSubmit={submitForm}>
+            <SelectStyled
+              required
+              className="form-select"
+              name="paymentMethod"
+              value={form.paymentMethod}
+              onChange={handleInputChange}
+            >
+              <option value="" disabled>
+                Forma de pagamento
+              </option>
+              <option value="Débito">Débito</option>
+              <option value="Credito">Crédito</option>
+            </SelectStyled>
+            <input
+              required
+              type="text"
+              placeholder="Número do cartão"
+              name="cardNumber"
+              value={form.cardNumber}
+              onChange={handleInputChange}
+            />
+            <input
+              required
+              type="text"
+              placeholder="Endereço"
+              name="address"
+              value={form.address}
+              onChange={handleInputChange}
+            />
+            <button type="submit" disabled={!formCompleted}>
+              Finalizar Pedido
+            </button>
+          </form>
+        </OrderedContainer>
+      </ItensContainer>
+
       {showModal && (
         <>
           <ModalOverlay />

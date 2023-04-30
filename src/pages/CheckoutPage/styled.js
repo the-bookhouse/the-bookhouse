@@ -3,16 +3,20 @@ import { mainColorButton, secondaryColorButton } from "../../constants/colors";
 
 export const CheckoutContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  
   height: 100%;
   .cart {
     margin-top: 100px;
-    position: fixed;
-    top: 25px;
-    z-index: 2;
   }
 `;
+export const ItensContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100%;
+  margin-top: 30px;
+`
 
 export const Header = styled.div`
   background-color: white;
@@ -48,7 +52,7 @@ export const OrderedContainer = styled.div`
   width: 30%;
   padding: 20px;
   box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.1);
-  margin-top: 150px;
+  
   h1 {
     font-size: 20px;
     margin-bottom: 30px;
@@ -218,7 +222,7 @@ export const CartList = styled.div`
   justify-content: left;
   align-items: left;
   width: 65%;
-  margin-top: 150px;
+  
   img {
     max-height: 110px;
   }

@@ -6,9 +6,9 @@ import { useContext, useEffect, useState } from "react";
 import AuthContext from "../../context/AuthContext";
 
 export default function HomePage() {
-
+  const [addProduct, setAddProduct] = useState(false)
   const navigate = useNavigate();
-  const { token, userName } = useContext(AuthContext);
+  const { token, userName, cartLoader, setCartLoader } = useContext(AuthContext);
   const config = {
     headers:
       { Authorization: `Bearer ${token}` }
@@ -28,13 +28,30 @@ export default function HomePage() {
       .catch((err) => alert(err.message))
   }, [])
 
+  useEffect(() => {
+    const config = {
+      headers:
+        { Authorization: `Bearer ${token}` }
+    };
+    axios.get(`${process.env.REACT_APP_API_URL}/cart`, config)
+      .then((res) => {
+        console.log(res.data)
+        setCartLoader(res.data)
+      })
+      .catch((err) => console.log(err.message))
+  }, [addProduct])
+
   function addCart(id) {
     console.log(id)
     const body = { id }
     axios.post(`${process.env.REACT_APP_API_URL}/home`, body, config)
-      .then((res) => console.log("enviou"))
+      .then((res) => {
+        setAddProduct(true)
+        alert('Produto adicionado ao carrinho')
+      })
       .catch((err) => alert(err.response.data))
   }
+
 
   return (
     <HomeContainer>

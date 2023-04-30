@@ -1,4 +1,4 @@
-import { HeaderConteiner, IconsContainer } from "./styled";
+import { CartIcon, Counter, HeaderConteiner, IconsContainer } from "./styled";
 import thebookhouse from "../../assets/images/thebookhouse.png";
 import { useLogout } from "../../services/auth";
 import { useState, useContext } from "react";
@@ -6,7 +6,7 @@ import AuthContext from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 export default function Header() {
-  const { userName } = useContext(AuthContext);
+  const { userName, cartLoader } = useContext(AuthContext);
   const logout = useLogout();
   const [searchValue, setSearchValue] = useState("");
   const navigate = useNavigate();
@@ -34,10 +34,17 @@ export default function Header() {
       <div className="user-container">
         <h1>Olá, {userName}</h1>
         <IconsContainer>
-          <ion-icon
-            onClick={handleCheckoutClick}
-            name="bag-handle-outline"
-          ></ion-icon>
+          <CartIcon onClick={handleCheckoutClick}>
+            <Counter >
+              {cartLoader.length}
+            </Counter>
+            <ion-icon
+              
+              name="bag-handle-outline"
+            ></ion-icon>
+
+          </CartIcon>
+
           <ion-icon onClick={logout} name="log-out-outline"></ion-icon>
         </IconsContainer>
       </div>

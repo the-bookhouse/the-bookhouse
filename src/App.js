@@ -11,10 +11,11 @@ import CheckoutPage from "./pages/CheckoutPage";
 export default function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [userName, setUserName] = useState(localStorage.getItem("userName"));
+  const [cartLoader, setCartLoader] = useState([])
 
   return (
     <PagesContainer>
-      <AuthContext.Provider value={{ token, setToken, userName, setUserName }}>
+      <AuthContext.Provider value={{ token, setToken, userName, setUserName, cartLoader, setCartLoader }}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<LoginPage />} />
