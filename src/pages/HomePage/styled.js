@@ -18,28 +18,30 @@ export const BooksContainer = styled.div`
 `
 
 export const Book = styled.div`
-  width: 200px;
-  height: 350px;
+  width: 210px;
+  height: 400px;
   margin-right: 30px;
   margin-bottom: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
   border: 1px solid lightgray;
   border-radius: 5px;
-  padding: 10px 10px;
+  padding: 10px;
+  gap: 8px;
   
   img {
     width: 100%;
-    height: 80%;
-    margin-bottom: 10px;
+    height: 100%;
   }
 
   h1{
-    font-size: 20px;
-    margin-bottom: 10px;
+    font-size: 18px;
     text-align: center;
     font-weight: bold;
+    white-space: nowrap;
+    
   }
 
   p {
@@ -55,5 +57,4 @@ export const Buy = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
 `

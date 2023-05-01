@@ -63,7 +63,7 @@ export default function HomePage() {
           <Book key={i}>
             <img src={p.image} alt={p.title}></img>
             <h1>{p.title}</h1>
-            <p>R${p.price}</p>
+            <p>R${p.price.toFixed(2)}</p>
             <Buy onClick={() => addCart(p._id)}>COMPRAR</Buy>
           </Book>
 
