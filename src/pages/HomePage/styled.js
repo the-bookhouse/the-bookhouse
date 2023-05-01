@@ -18,7 +18,7 @@ export const BooksContainer = styled.div`
 `
 
 export const Book = styled.div`
-  width: 210px;
+  width: 204px;
   height: 400px;
   margin-right: 30px;
   margin-bottom: 30px;
@@ -29,26 +29,21 @@ export const Book = styled.div`
   border: 1px solid lightgray;
   border-radius: 5px;
   padding: 10px;
-  gap: 8px;
-  
+  gap: 6px; 
   img {
     width: 100%;
     height: 100%;
   }
-
   h1{
     font-size: 18px;
     text-align: center;
     font-weight: bold;
-    white-space: nowrap;
-    
+    white-space: nowrap; 
   }
-
   p {
     font-size: 20px;
   }
 `
-
 export const Buy = styled.button`
   width: 50%;
   height: 7%;
