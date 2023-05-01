@@ -18,10 +18,10 @@ export default function Header() {
   const handleCheckoutClick = () => {
     navigate("/checkout");
   };
-
+  const goHome = () => navigate("/home");
   return (
     <HeaderConteiner>
-      <img src={thebookhouse} alt="logo" className="logo" />
+      <img onClick={goHome} src={thebookhouse} alt="logo" className="logo" />
       <div className="search-container">
         <input
           type="text"

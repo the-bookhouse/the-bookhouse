@@ -18,7 +18,7 @@ export const ItensContainer = styled.div`
   margin-top: 30px;
 `;
 
-export const Header = styled.div`
+export const HeaderC = styled.div`
   background-color: white;
   width: 100%;
   height: 10vh;

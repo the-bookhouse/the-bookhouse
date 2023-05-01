@@ -1,4 +1,4 @@
-import { CheckoutContainer, ItensContainer, Header, OrderedContainer, ListProducts, TotalProducts, Divider, CartContainer, CartList } from "./styled";
+import { CheckoutContainer, ItensContainer, HeaderC, OrderedContainer, ListProducts, TotalProducts, Divider, CartContainer, CartList } from "./styled";
 
 import thebookhouse from "../../assets/images/thebookhouse.png";
 import ModalCheckout from "../../components/ModalCheckout";
@@ -7,6 +7,7 @@ import AuthContext from "../../context/AuthContext";
 import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Header from "../../components/Header";
 
 export default function CheckoutPage() {
   const { userName, cartLoader } = useContext(AuthContext);
@@ -54,11 +55,7 @@ export default function CheckoutPage() {
 
   return (
     <CheckoutContainer>
-      <Header>
-        <Link to="/home">
-          <img src={thebookhouse} alt="logo" className="logo" />
-        </Link>
-      </Header>
+      <Header />
 
       <h1 className="cart">Meu Carrinho</h1>
       <ItensContainer>

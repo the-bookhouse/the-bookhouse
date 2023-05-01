@@ -27,6 +27,7 @@ export const HeaderConteiner = styled.header`
     margin-bottom: 17px;
     margin-left: 50px;
     margin-right: 20px;
+    cursor: pointer;
   }
 
   .user-container {
