@@ -1,14 +1,12 @@
 import Header from "../../components/Header";
 import { HomeContainer, BooksContainer, Book, Buy } from "./styled";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import AuthContext from "../../context/AuthContext";
 
 export default function HomePage() {
   const [addProduct, setAddProduct] = useState(false)
-  const navigate = useNavigate();
-  const { token, userName, cartLoader, setCartLoader } = useContext(AuthContext);
+  const { token, userName, setCartLoader } = useContext(AuthContext);
   const config = {
     headers:
       { Authorization: `Bearer ${token}` }
@@ -26,6 +24,7 @@ export default function HomePage() {
 
       })
       .catch((err) => alert(err.message))
+      // eslint-disable-next-line
   }, [])
 
   useEffect(() => {
@@ -39,6 +38,7 @@ export default function HomePage() {
         setCartLoader(res.data)
       })
       .catch((err) => console.log(err.message))
+      // eslint-disable-next-line
   }, [addProduct])
 
   function addCart(id) {

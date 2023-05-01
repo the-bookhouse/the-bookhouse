@@ -1,61 +1,42 @@
-import {
-  CheckoutContainer,
-  ItensContainer,
-  Header,
-  OrderedContainer,
-  ListProducts,
-  TotalProducts,
-  Divider,
-  CartContainer,
-  SelectStyled,
-  Modal,
-  ModalOverlay,
-  Infos,
-  CartList
-} from "./styled";
+import { CheckoutContainer, ItensContainer, Header, OrderedContainer, ListProducts, TotalProducts, Divider, CartContainer, CartList } from "./styled";
+
 import thebookhouse from "../../assets/images/thebookhouse.png";
-import book1 from "../../assets/images/book1.jpeg";
-import book2 from "../../assets/images/book2.jpeg";
-import concluded from "../../assets/images/concluded.gif";
+import ModalCheckout from "../../components/ModalCheckout";
+import CheckoutForm from "../../components/CheckoutForm"
 import AuthContext from "../../context/AuthContext";
 import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
 export default function CheckoutPage() {
-  const { userName, token, cartLoader, setCartLoader } = useContext(AuthContext);
+  const { userName, cartLoader } = useContext(AuthContext);
   const [formCompleted, setFormCompleted] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [form, setForm] = useState({
-    address: "",
-    cardNumber: "",
-    paymentMethod: "",
-  });
-  const [cart, setCart] = useState([]);
+  const [form, setForm] = useState({ address: "", cardNumber: "", paymentMethod: "" });
 
-  useEffect(() => {
-    const isFormValid = Object.values(form).every((value) => Boolean(value));
-    setFormCompleted(isFormValid);
-  }, [form]);
-  /*
-  useEffect(() => {
-    const config = {
-      headers:
-        { Authorization: `Bearer ${token}` }
-    };
-    axios.get(`${process.env.REACT_APP_API_URL}/cart`, config)
-      .then((res) => {
-        console.log(res.data)
-        setCart(res.data)
-      })
-      .catch((err) => console.log(err.message))
-  }, [])
-  */
+  const total = cartLoader.reduce((acc, item) => acc + item.price, 0);
+
   function submitForm(e) {
     e.preventDefault();
     setShowModal(true);
+  
+    const orderData = {
+      userName: userName,
+      address: form.address,
+      cardNumber: form.cardNumber,
+      paymentMethod: form.paymentMethod,
+      total: total.toFixed(2),
+    };
+  
+    const token = localStorage.getItem("token");
+    axios
+      .post(`${process.env.REACT_APP_API_URL}/orders`, orderData, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => console.log(response.data))
+      .catch((error) => console.error(error));
   }
-
+  
   function handleInputChange(e) {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
@@ -66,7 +47,10 @@ export default function CheckoutPage() {
     window.location.href = "/home";
   }
 
-  const total = cartLoader.reduce((acc, item) => acc + item.price , 0);
+  useEffect(() => {
+    const isFormValid = Object.values(form).every((value) => Boolean(value));
+    setFormCompleted(isFormValid);
+  }, [form]);
 
   return (
     <CheckoutContainer>
@@ -83,102 +67,45 @@ export default function CheckoutPage() {
             <CartContainer key={item.id}>
               <img src={item.image} alt="book"></img>
               <h2>{item.title}</h2>
-              <h3><strong>R$ {item.price.toFixed(2)}</strong></h3>
+              <h3>
+                <strong>R$ {item.price.toFixed(2)}</strong>
+              </h3>
             </CartContainer>
           ))}
         </CartList>
 
-
-
         <OrderedContainer enabled={formCompleted}>
           <h1>Resumo do Pedido</h1>
-
           <ListProducts>
-            <h2>
-              Quantidade produtos
-            </h2>
-            <h3><strong>{cartLoader.length}</strong></h3>
+            <h2>Quantidade produtos</h2>
+            <h3>
+              <strong>{cartLoader.length}</strong>
+            </h3>
           </ListProducts>
-
           <Divider />
-
           <TotalProducts>
             <h2>Total</h2>
             <h3>R$ {total.toFixed(2)}</h3>
           </TotalProducts>
-
           <Divider />
-
-          <Link to="/home">
-            <h4>Continue Comprando</h4>
-          </Link>
-
-          <form onSubmit={submitForm}>
-            <SelectStyled
-              required
-              className="form-select"
-              name="paymentMethod"
-              value={form.paymentMethod}
-              onChange={handleInputChange}
-            >
-              <option value="" disabled>
-                Forma de pagamento
-              </option>
-              <option value="Débito">Débito</option>
-              <option value="Credito">Crédito</option>
-            </SelectStyled>
-            <input
-              required
-              type="text"
-              placeholder="Número do cartão"
-              name="cardNumber"
-              value={form.cardNumber}
-              onChange={handleInputChange}
-            />
-            <input
-              required
-              type="text"
-              placeholder="Endereço"
-              name="address"
-              value={form.address}
-              onChange={handleInputChange}
-            />
-            <button type="submit" disabled={!formCompleted}>
-              Finalizar Pedido
-            </button>
-          </form>
+          <Link to="/home"><h4>Continue Comprando</h4></Link>
+          <CheckoutForm
+            form={form}
+            handleInputChange={handleInputChange}
+            submitForm={submitForm}
+            formCompleted={formCompleted}
+          />
         </OrderedContainer>
       </ItensContainer>
 
       {showModal && (
-        <>
-          <ModalOverlay />
-          <Modal className="modal-content" showModal={showModal}>
-            <ion-icon
-              onClick={handleCloseModal}
-              name="close-outline"
-            ></ion-icon>
-            <img src={concluded} alt="concluded" />
-            <h2>Pedido Concluido com Sucesso</h2>
-            <Infos>
-              <p>
-                <strong>Nome: </strong> {userName}
-              </p>
-              <p>
-                <strong>Endereço: </strong> {form.address}
-              </p>
-              <p>
-                <strong>Número do cartão: </strong> {form.cardNumber}
-              </p>
-              <p>
-                <strong>Forma de pagamento: </strong> {form.paymentMethod}
-              </p>
-              <p>
-                <strong>Total Compra: </strong> {total.toFixed(2)}
-              </p>
-            </Infos>
-          </Modal>
-        </>
+        <ModalCheckout
+          showModal={showModal}
+          handleCloseModal={handleCloseModal}
+          userName={userName}
+          form={form}
+          total={total}
+        />
       )}
     </CheckoutContainer>
   );
