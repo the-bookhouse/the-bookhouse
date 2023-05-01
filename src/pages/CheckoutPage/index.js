@@ -63,7 +63,7 @@ export default function CheckoutPage() {
       <h1 className="cart">Meu Carrinho</h1>
       <ItensContainer>
         <CartList>
-          {cartLoader.map((item) => (
+          {cartLoader.length > 0 ? cartLoader.map((item) => (
             <CartContainer key={item.id}>
               <img src={item.image} alt="book"></img>
               <h2>{item.title}</h2>
@@ -71,7 +71,7 @@ export default function CheckoutPage() {
                 <strong>R$ {item.price.toFixed(2)}</strong>
               </h3>
             </CartContainer>
-          ))}
+          )) : <p>Você ainda não adicionou produtos ao carrinho!</p>}
         </CartList>
 
         <OrderedContainer enabled={formCompleted}>
