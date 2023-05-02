@@ -1,6 +1,6 @@
 export const mainColor = "white";
 export const mainColorLight = "#a679b8";
-export const secondaryColorButton = "red";
+export const secondaryColorButton = "#FF4747";
 export const mainColorButton = "#BC8F8F";
 export const mainContrastColor = "black";
 

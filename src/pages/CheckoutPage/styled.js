@@ -4,7 +4,7 @@ import { mainColorButton, secondaryColorButton } from "../../constants/colors";
 export const CheckoutContainer = styled.div`
   display: flex;
   flex-direction: column;
-
+  padding: 10px;
   height: 100%;
   .cart {
     margin-top: 60px;
