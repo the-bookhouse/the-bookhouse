@@ -7,21 +7,17 @@ import AuthContext from "../../context/AuthContext";
 export default function HomePage() {
   const [addProduct, setAddProduct] = useState(false)
   const { token, userName, setCartLoader } = useContext(AuthContext);
+
   const config = {
     headers:
       { Authorization: `Bearer ${token}` }
   };
-  console.log(token)
-  console.log(userName)
-
   const [productsList, setProductsList] = useState([])
 
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}/home`, config)
       .then((res) => {
-        console.log(res.data)
         setProductsList(res.data)
-
       })
       .catch((err) => alert(err.message))
       // eslint-disable-next-line
@@ -34,7 +30,6 @@ export default function HomePage() {
     };
     axios.get(`${process.env.REACT_APP_API_URL}/cart`, config)
       .then((res) => {
-        console.log(res.data)
         setCartLoader(res.data)
       })
       .catch((err) => console.log(err.message))
@@ -42,7 +37,6 @@ export default function HomePage() {
   }, [addProduct])
 
   function addCart(id) {
-    console.log(id)
     const body = { id }
     axios.post(`${process.env.REACT_APP_API_URL}/home`, body, config)
       .then((res) => {

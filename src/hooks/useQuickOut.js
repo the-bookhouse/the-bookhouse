@@ -8,5 +8,6 @@ export default function useQuickOut() {
   
   useEffect(() => {
     if (!token || !userName) navigate("/");
+    // eslint-disable-next-line
   }, []);
 }

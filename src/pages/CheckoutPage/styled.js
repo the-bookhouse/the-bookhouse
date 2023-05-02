@@ -7,7 +7,7 @@ export const CheckoutContainer = styled.div`
 
   height: 100%;
   .cart {
-    margin-top: 100px;
+    margin-top: 60px;
   }
 `;
 export const ItensContainer = styled.div`
@@ -15,7 +15,8 @@ export const ItensContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   height: 100%;
-  margin-top: 30px;
+  margin-top: 20px;
+  margin-bottom: 100px;
 `;
 
 export const HeaderC = styled.div`

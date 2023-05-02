@@ -8,5 +8,6 @@ export default function useQuickIn() {
 
   useEffect(() => {
     if (token && userName) navigate("/home");
+    // eslint-disable-next-line
   }, []);
 }

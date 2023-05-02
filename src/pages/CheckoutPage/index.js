@@ -1,6 +1,4 @@
-import { CheckoutContainer, ItensContainer, HeaderC, OrderedContainer, ListProducts, TotalProducts, Divider, CartContainer, CartList } from "./styled";
-
-import thebookhouse from "../../assets/images/thebookhouse.png";
+import { CheckoutContainer, ItensContainer, OrderedContainer, ListProducts, TotalProducts, Divider, CartContainer, CartList } from "./styled";
 import ModalCheckout from "../../components/ModalCheckout";
 import CheckoutForm from "../../components/CheckoutForm"
 import AuthContext from "../../context/AuthContext";
