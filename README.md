@@ -1,14 +1,5 @@
 # The BookHouse Project
 
-Demo: https://projeto15-thebookhouse-front.vercel.app/
-
-<div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
- <img width="500" alt="Captura de Tela 2023-06-12 às 17 03 02" src="https://github.com/natividadesusana/projeto15-thebookhouse-front/assets/95102911/d8431898-a59f-45e9-917e-051f2c544b7c">
- <img width="500" alt="Captura de Tela 2023-06-12 às 17 17 40" src="https://github.com/natividadesusana/the-bookhouse/assets/95102911/bf44c850-ac29-46c4-8137-28f0c9c914c6">
- <img width="500" alt="Captura de Tela 2023-06-12 às 17 18 52" src="https://github.com/natividadesusana/the-bookhouse/assets/95102911/be13369e-ddb7-4567-a5b6-242a42f101df">
- <img width="500" alt="Captura de Tela 2023-06-12 às 17 26 07" src="https://github.com/natividadesusana/the-bookhouse/assets/95102911/af3a2d50-8720-4947-8aba-0eadece7f9eb">
-</div>
-
 ## ℹ️ About
 TheBookHouse is a web application that allows users to browse and purchase books. The main features of the project include:
 
@@ -18,6 +9,14 @@ Shopping cart functionality for adding multiple products
 Checkout process to complete a purchase (no actual payment processing)
 TheBookHouse was developed as a personal project to practice web development skills and showcase the use of React.js and API integration.
 
+<div style="display: flex; justify-content: center; align-items: center;">
+ <img width="800" alt="Captura de Tela 2023-06-12 às 17 03 02" src="https://github.com/natividadesusana/projeto15-thebookhouse-front/assets/95102911/d8431898-a59f-45e9-917e-051f2c544b7c">
+ <img width="800" alt="Captura de Tela 2023-06-12 às 17 17 40" src="https://github.com/natividadesusana/the-bookhouse/assets/95102911/bf44c850-ac29-46c4-8137-28f0c9c914c6">
+ <img width="800" alt="Captura de Tela 2023-06-12 às 17 18 52" src="https://github.com/natividadesusana/the-bookhouse/assets/95102911/be13369e-ddb7-4567-a5b6-242a42f101df">
+ <img width="800" alt="Captura de Tela 2023-06-12 às 17 26 07" src="https://github.com/natividadesusana/the-bookhouse/assets/95102911/af3a2d50-8720-4947-8aba-0eadece7f9eb">
+</div>
+
+Demo: https://projeto15-thebookhouse-front.vercel.app/
 
 ## 🛠️ Technologies
 <div> 
