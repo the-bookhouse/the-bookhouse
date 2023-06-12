@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# The BookHouse Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Demo: https://projeto15-thebookhouse-front.vercel.app/
 
-## Available Scripts
+<img width="1440" alt="Captura de Tela 2023-06-12 às 17 03 02" src="https://github.com/natividadesusana/projeto15-thebookhouse-front/assets/95102911/d8431898-a59f-45e9-917e-051f2c544b7c">
 
-In the project directory, you can run:
 
-### `npm start`
+## ℹ️ About
+TheBookHouse is a web application that allows users to browse and purchase books. The main features of the project include:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+User registration and login functionality
+Dynamic loading of product data from a database
+Shopping cart functionality for adding multiple products
+Checkout process to complete a purchase (no actual payment processing)
+TheBookHouse was developed as a personal project to practice web development skills and showcase the use of React.js and API integration.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## 🛠️ Technologies
+<div> 
+ <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="40" width="52" alt="react logo"  />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" width="52" alt="js logo"  />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height="40" width="52" alt="html5 logo"  />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="40" width="52" alt="css3 logo"  />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" height="40" width="52" alt="git logo"  />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" height="40" width="52" alt="github logo" /> 
+<div>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+TheBookHouse is built using React.js, a popular JavaScript library for building user interfaces. The application fetches book data from a database using Axios, and the user interface is styled using HTML5 and CSS3. Git and GitHub are used for version control and collaboration.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## ⚙️ Functionalities
+- User Registration and Login:
+Users can create an account and authenticate themselves as clients of the site.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Product Listing:
+Users can browse and view the available books on the site. The product data is dynamically loaded from a database.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Shopping Cart:
+Users can add multiple books to their shopping cart, enabling them to purchase multiple products simultaneously.
 
-### `npm run eject`
+- Checkout:
+Users can proceed to the checkout process to complete a purchase. No actual payment processing is implemented, but the purchase information, including user and product data, is stored in the database.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🖇 How to run
+To run this project locally, follow these steps:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Clone this repository: git clone https://github.com/your-username/thebookhouse.git
+Install the dependencies: npm install
+Run the development server: npm start
+Access http://localhost:3000 in your browser to see the app running.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## How to Contribute
+Contributions are always welcome! If you find any bugs or have suggestions for new features, feel free to open an issue or submit a pull request.
