@@ -45,10 +45,10 @@ Users can proceed to the checkout process to complete a purchase. No actual paym
 ## 🖇 How to run
 To run this project locally, follow these steps:
 
-Clone this repository: git clone https://github.com/your-username/thebookhouse.git
-Install the dependencies: npm install
-Run the development server: npm start
-Access http://localhost:3000 in your browser to see the app running.
+1. Clone this repository: git clone https://github.com/your-username/thebookhouse.git
+2. Install the dependencies: npm install
+3. Run the development server: npm start
+4. Access http://localhost:3000 in your browser to see the app running.
 
 
 ## How to Contribute
