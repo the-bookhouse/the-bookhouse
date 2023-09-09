@@ -16,7 +16,10 @@ The BookHouse was developed as a personal project to practice web development sk
  <img width="800" alt="Captura de Tela 2023-06-12 às 17 26 07" src="https://github.com/natividadesusana/the-bookhouse/assets/95102911/af3a2d50-8720-4947-8aba-0eadece7f9eb">
 </div>
 
-Demo: https://projeto15-thebookhouse-front.vercel.app/home
+</br>
+🔸 Demo: https://projeto15-thebookhouse-front.vercel.app
+
+🔸 Backend Repository: https://github.com/yurilopesmdv/projeto15-thebookhouse-back
 
 ## 🛠️ Technologies
 <div> 
