@@ -1,4 +1,4 @@
-# The BookHouse Project
+# The BookHouse 
 
 ## ℹ️ About
 The BookHouse is a web application that allows users to browse and purchase books. The main features of the project include:
