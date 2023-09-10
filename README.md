@@ -20,6 +20,8 @@ The BookHouse was developed as a personal project to practice web development sk
 
 🔸 Demo: https://projeto15-thebookhouse-front.vercel.app
 
+🔸 Backend Repository: https://github.com/the-bookhouse/the-bookhouse-API
+
 🔸 Organization The BookHouse: https://github.com/the-bookhouse
 
 <hr/>
